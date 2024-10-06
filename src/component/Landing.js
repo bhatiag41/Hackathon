@@ -5,6 +5,8 @@ import starImage from "./star.png";
 import choropleth from './choropleth.png';
 import subplots from './subplots.png';
 import { useNavigate } from "react-router-dom";
+import Sunburst from "./sunburst.png";
+import scatter from "./scatter.png"
 
 const Landing = ({setGraph}) => {
   const mountRef = useRef(null);
@@ -109,24 +111,24 @@ const Landing = ({setGraph}) => {
   const navigate = useNavigate();
   const handleClick = (type) => {
     setGraph(type);
-    document.startViewTransition(()=>{
+    document.startViewTransition(()=> {
       navigate("/graphDisplay");
-    })
+    });
   };
 
   return (
-      <div className="landing-container">
-        <div className="text-box">
-          <div className="heading">CodeStronauts</div>
-          <div className="button-wrapper">
-            <img className="images" alt="choropleth" src={choropleth} onClick={()=>{handleClick('choropleth')}} />
-            <img className="images" alt="subplots" src={subplots} onClick={()=>{handleClick('subplots')}} /> 
-            <img className="images" alt="choropleth" src={choropleth} onClick={()=>{handleClick('choropleth')}} />
-            <img className="images" alt="choropleth" src={choropleth} onClick={()=>{handleClick('choropleth')}} />
-          </div>
+    <div className="landing-container">
+      <div className="text-box">
+        <div className="heading">CodeStronauts</div>
+        <div className="button-wrapper">
+          <img className="images" alt="choropleth" src={choropleth} onClick={() => handleClick('choropleth')} />
+          <img className="images" alt="subplots" src={subplots} onClick={() => handleClick('subplots')} />
+          <img className="images" alt="sunburst" src={Sunburst} onClick={() => handleClick('sunburst')} />
+          <img className="images" alt="scatterplot" src={scatter} onClick={() => handleClick('scatterplot')} />
         </div>
-        <div ref={mountRef}></div>
       </div>
+      <div ref={mountRef}></div>
+    </div>
   );
 };
 
